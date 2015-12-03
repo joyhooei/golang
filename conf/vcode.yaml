@@ -1,0 +1,17 @@
+address:
+  ip: hostip
+  port: 8181
+redis:
+  cache:
+    max_conn: 100
+    master:
+      ip: master.cache.redis.docker
+      port: 16379
+    slave:
+    - ip: slave1.cache.redis.docker
+      port: 16379
+    - ip: slave2.cache.redis.docker
+      port: 16379
+log:
+  dir: /root/go/log
+  level: debug

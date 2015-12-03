@@ -1,0 +1,3 @@
+hello =   xxx
+	hello2 =   yxx	#test
+ #hello3 = xfe

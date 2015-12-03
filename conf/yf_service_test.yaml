@@ -1,0 +1,59 @@
+public_addr:
+  ip: yf_service
+  port: 8081
+log:
+  dir: /root/go/log
+  level: debug
+push:
+  ip: test.hub.push.docker
+  port: 12377
+mysql:
+  main:
+    master: root:root@tcp(test.main.mysql.docker:13306)/qiuqian
+    slave:
+    - root:root@tcp(test.main.mysql.docker:13306)/qiuqian
+    - root:root@tcp(test.main.mysql.docker:13306)/qiuqian
+  sort:
+    master: root:root@tcp(test.sort.mysql.docker:13306)/qiuqian_sort
+    slave:
+    - root:root@tcp(test.sort.mysql.docker:13306)/qiuqian_sort
+    - root:root@tcp(test.sort.mysql.docker:13306)/qiuqian_sort
+  message:
+    master: root:root@tcp(test.message.mysql.docker:13306)/qiuqian_message
+    slave:
+    - root:root@tcp(test.message.mysql.docker:13306)/qiuqian_message
+    - root:root@tcp(test.message.mysql.docker:13306)/qiuqian_message
+  stat:
+    master: root:root@tcp(test.stat.mysql.docker:13306)/qiuqian_stat
+    slave:
+    - root:root@tcp(test.stat.mysql.docker:13306)/qiuqian_stat
+    - root:root@tcp(test.stat.mysql.docker:13306)/qiuqian_stat
+  dstat:
+    master: root:root@tcp(test.stat.mysql.docker:13306)/qiuqian_dstat
+    slave:
+    - root:root@tcp(test.stat.mysql.docker:13306)/qiuqian_dstat
+    - root:root@tcp(test.stat.mysql.docker:13306)/qiuqian_dstat
+redis:
+  main:
+    max_conn: 100
+    master:
+      ip: test.main.redis.docker
+      port: 16379
+    slave:
+    - ip: test.main.redis.docker
+      port: 16379
+    - ip: test.main.redis.docker
+      port: 16379
+  cache:
+    max_conn: 100
+    master:
+      ip: test.cache.redis.docker
+      port: 26379
+    slave:
+    - ip: test.cache.redis.docker
+      port: 26379
+    - ip: test.cache.redis.docker
+      port: 26379
+mode: test
+upload_service_url: test.upload.imswing.cn:10080 
+web_service_url: http://test.a.imswing.cn:10080

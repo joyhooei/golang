@@ -1,0 +1,60 @@
+public_addr:
+  ip: yf_service 
+  port: 8181
+log:
+  dir: /root/go/log
+  level: debug
+push:
+  ip: 192.168.1.91
+  port: 12377
+mysql:
+  main:
+    master: root:root@tcp(192.168.1.91:13306)/mumu
+    slave:
+    - root:root@tcp(192.168.1.91:13306)/mumu
+    - root:root@tcp(192.168.1.91:13306)/mumu
+  sort:
+    master: root:root@tcp(192.168.1.91:13306)/mumu_sort
+    slave:
+    - root:root@tcp(192.168.1.91:13306)/mumu_sort
+    - root:root@tcp(192.168.1.91:13306)/mumu_sort
+  message:
+    master: root:root@tcp(192.168.1.91:13306)/mumu_message
+    slave:
+    - root:root@tcp(192.168.1.91:13306)/mumu_message
+    - root:root@tcp(192.168.1.91:13306)/mumu_message
+  stat:
+    master: root:root@tcp(192.168.1.91:13306)/mumu_stat
+    slave:
+    - root:root@tcp(192.168.1.91:13306)/mumu_stat
+    - root:root@tcp(192.168.1.91:13306)/mumu_stat
+  dstat:
+    master: root:root@tcp(192.168.1.91:13306)/mumu_dstat
+    slave:
+    - root:root@tcp(192.168.1.91:13306)/mumu_dstat
+    - root:root@tcp(192.168.1.91:13306)/mumu_dstat
+redis:
+  main:
+    max_conn: 100
+    master:
+      ip: 192.168.1.91
+      port: 16379
+    slave:
+    - ip: 192.168.1.91
+      port: 16379
+    - ip: 192.168.1.91
+      port: 16379
+  cache:
+    max_conn: 100
+    master:
+      ip: 192.168.1.91
+      port: 26379
+    slave:
+    - ip: 192.168.1.91
+      port: 26379
+    - ip: 192.168.1.91
+      port: 26379
+game_callback_url: http://120.131.64.91:8081
+game_service_url: 120.131.64.92:8100
+mode: test
+upload_service_url: test.upload.mumu123.cn:10080

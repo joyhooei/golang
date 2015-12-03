@@ -1,0 +1,29 @@
+log:
+  dir: /root/go/log/scanstar
+  level: debug
+mysql:
+  main:
+    master: root:root@tcp(test.main.mysql.docker:13306)/mumu
+    slave:
+    - root:root@tcp(test.main.mysql.docker:13306)/mumu
+    - root:root@tcp(test.main.mysql.docker:13306)/mumu
+  sort:
+    master: root:root@tcp(test.sort.mysql.docker:13306)/mumu_sort
+    slave:
+    - root:root@tcp(test.sort.mysql.docker:13306)/mumu_sort
+    - root:root@tcp(test.sort.mysql.docker:13306)/mumu_sort
+  message:
+    master: root:root@tcp(test.message.mysql.docker:13306)/mumu_message
+    slave:
+    - root:root@tcp(test.message.mysql.docker:13306)/mumu_message
+    - root:root@tcp(test.message.mysql.docker:13306)/mumu_message
+  stat:
+    master: root:root@tcp(test.stat.mysql.docker:13306)/mumu_stat
+    slave:
+    - root:root@tcp(test.stat.mysql.docker:13306)/mumu_stat
+    - root:root@tcp(test.stat.mysql.docker:13306)/mumu_stat
+  dstat:
+    master: root:root@tcp(test.stat.mysql.docker:13306)/mumu_dstat
+    slave:
+    - root:root@tcp(test.stat.mysql.docker:13306)/mumu_dstat
+    - root:root@tcp(test.stat.mysql.docker:13306)/mumu_dstat

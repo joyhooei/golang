@@ -1,0 +1,7 @@
+public_addr:
+  ip: 115.28.178.151
+  port: 8180
+path: /home/jiatao/go/data
+log:
+  dir: /home/jiatao/go/log/post_logs
+  level: debug

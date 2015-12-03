@@ -1,0 +1,59 @@
+public_addr:
+  ip: hostip
+  port: 8081
+log:
+  dir: /root/go/log
+  level: debug
+push:
+  ip: hub1.push.docker
+  port: 12377
+mysql:
+  main:
+    master: mumu:jkwen2k3x@tcp(master.main.mysql.docker:13306)/mumu
+    slave:
+    - mumu:jkwen2k3x@tcp(slave1.main.mysql.docker:13306)/mumu
+    - mumu:jkwen2k3x@tcp(slave2.main.mysql.docker:13306)/mumu
+  sort:
+    master: mumu:jkwen2k3x@tcp(master.sort.mysql.docker:13306)/mumu_sort
+    slave:
+    - mumu:jkwen2k3x@tcp(slave1.sort.mysql.docker:13306)/mumu_sort
+    - mumu:jkwen2k3x@tcp(slave2.sort.mysql.docker:13306)/mumu_sort
+  message:
+    master: mumu:jkwen2k3x@tcp(master.message.mysql.docker:13306)/mumu_message
+    slave:
+    - mumu:jkwen2k3x@tcp(slave1.message.mysql.docker:13306)/mumu_message
+    - mumu:jkwen2k3x@tcp(slave2.message.mysql.docker:13306)/mumu_message
+  stat:
+    master: mumu:jkwen2k3x@tcp(master.stat.mysql.docker:13307)/mumu_stat
+    slave:
+    - mumu:jkwen2k3x@tcp(slave1.stat.mysql.docker:13307)/mumu_stat
+    - mumu:jkwen2k3x@tcp(slave2.stat.mysql.docker:13307)/mumu_stat
+  dstat:
+    master: mumu:jkwen2k3x@tcp(master.stat.mysql.docker:13307)/mumu_dstat
+    slave:
+    - mumu:jkwen2k3x@tcp(slave1.stat.mysql.docker:13307)/mumu_dstat
+    - mumu:jkwen2k3x@tcp(slave2.stat.mysql.docker:13307)/mumu_dstat
+redis:
+  main:
+    max_conn: 100
+    master:
+      ip: master.main.redis.docker
+      port: 16379
+    slave:
+    - ip: slave1.main.redis.docker
+      port: 16379
+    - ip: slave2.main.redis.docker
+      port: 16379
+  cache:
+    max_conn: 100
+    master:
+      ip: master.cache.redis.docker
+      port: 16379
+    slave:
+    - ip: slave1.cache.redis.docker
+      port: 16379
+    - ip: slave2.cache.redis.docker
+      port: 16379
+mode: production
+upload_service_url: upload.imswing.cn
+web_service_url: http://www.imswing.cn

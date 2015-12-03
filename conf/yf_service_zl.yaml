@@ -1,0 +1,54 @@
+public_addr:
+  ip: 115.28.178.151
+  port: 8001
+private_addr:
+  ip: 127.0.0.1
+  port: 8081
+log:
+  dir: /home/zhoulong/go/log
+  level: debug
+push:
+  ip: 127.0.0.1
+  port: 12377
+mysql:
+  main:
+    master: root:root@tcp(localhost:3306)/mumu
+    slave:
+    - root:root@tcp(localhost:3306)/mumu
+    - root:root@tcp(localhost:3306)/mumu
+  sort:
+    master: root:root@tcp(localhost:3306)/mumu_sort
+    slave:
+    - root:root@tcp(localhost:3306)/mumu_sort
+    - root:root@tcp(localhost:3306)/mumu_sort
+  message:
+    master: root:root@tcp(localhost:3306)/mumu_message
+    slave:
+    - root:root@tcp(localhost:3306)/mumu_message
+    - root:root@tcp(localhost:3306)/mumu_message
+  stat:
+    master: root:root@tcp(mysql.mumu:13306)/mumu_stat
+    slave:
+    - root:root@tcp(mysql.mumu:13306)/mumu_stat
+    - root:root@tcp(mysql.mumu:13306)/mumu_stat
+redis:
+  main:
+    max_conn: 100
+    master:
+      ip: 127.0.0.1
+      port: 9000
+    slave:
+    - ip: 127.0.0.1
+      port: 9000
+    - ip: 127.0.0.1
+      port: 9000
+  cache:
+    max_conn: 100
+    master:
+      ip: 127.0.0.1
+      port: 20001
+    slave:
+    - ip: 127.0.0.1
+      port: 20001
+    - ip: 127.0.0.1
+      port: 20001

@@ -1,0 +1,17 @@
+address:
+  ip: yf_service
+  port: 8081
+redis:
+  cache:
+    max_conn: 100
+    master:
+      ip: test.cache.redis.docker
+      port: 26379
+    slave:
+    - ip: test.cache.redis.docker
+      port: 26379
+    - ip: test.cache.redis.docker
+      port: 26379
+log:
+  dir: /root/go/log
+  level: debug

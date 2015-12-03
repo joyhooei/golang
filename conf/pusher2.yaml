@@ -1,0 +1,33 @@
+http_addr:
+  ip: 127.0.0.1
+  port: 12379
+tcp_addr:
+  - ip: 115.28.178.151
+    port: 12380
+  - ip: 115.28.178.151
+    port: 12381
+log:
+  dir: /home/jiatao/go/log/pusher
+  level: debug
+mysql:
+  main:
+    master: root:root@tcp(localhost:3306)/mumu_message
+    slave:
+    - root:root@tcp(localhost:3306)/mumu_message
+    - root:root@tcp(localhost:3306)/mumu_message
+  online:
+    master: root:root@tcp(localhost:3306)/mumu
+    slave:
+    - root:root@tcp(localhost:3306)/mumu
+    - root:root@tcp(localhost:3306)/mumu
+redis:
+  main:
+    max_conn: 101
+    master:
+      ip: 127.0.0.1
+      port: 9000
+    slave:
+    - ip: 127.0.0.1
+      port: 9000
+    - ip: 127.0.0.1
+      port: 9000

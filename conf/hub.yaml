@@ -1,0 +1,23 @@
+address:
+  ip: hostip
+  port: 12377
+log:
+  dir: /root/go/log
+  level: debug
+mysql:
+  main:
+    master: mumu:jkwen2k3x@tcp(master.message.mysql.docker:13306)/mumu_message
+    slave:
+    - mumu:jkwen2k3x@tcp(slave1.message.mysql.docker:13306)/mumu_message
+    - mumu:jkwen2k3x@tcp(slave2.message.mysql.docker:13306)/mumu_message
+redis:
+  main:
+    max_conn: 100
+    master:
+      ip: master.main.redis.docker
+      port: 16379
+    slave:
+    - ip: slave1.main.redis.docker
+      port: 16379
+    - ip: slave2.main.redis.docker
+      port: 16379

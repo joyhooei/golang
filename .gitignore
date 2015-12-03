@@ -1,0 +1,11 @@
+github.com/
+code.google.com/
+pkg/
+bin/
+data/
+/log/
+*.swp
+*.swo
+9fans.net/
+golang.org/
+gopkg.in/

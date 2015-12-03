@@ -1,0 +1,6 @@
+address:
+  ip: 
+  port: 15555
+log:
+  dir: /root/go/log
+  level: debug

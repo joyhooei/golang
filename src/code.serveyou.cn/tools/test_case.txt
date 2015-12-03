@@ -1,0 +1,74 @@
+获取验证码
+curl "http://localhost:8080/account/vcode?phone=13810592279&for=1"
+注册设备
+go run http_post.go http://localhost:8080/account/reg_device "devid=xxfxx22313\r\ndname=galaxy note 3\r\nplatform=1"
+注册客户帐号
+go run http_post.go http://localhost:8080/account/register "phone=13810592279\r\nrole=1\r\nvcode=092173\r\ninviter=13810592275\r\ncommunity=1\r\naddress=414楼2205\r\ndevid=xxfxx22313\r\ndname=galaxy note 3\r\nplatform=1\r\nmail=jiatower@gmail.com\r\nlname=贾\r\nfname=涛\r\nnname=贾先生\r\nbirthday=1980-3-30\r\nbirthplace=陕西"
+下单
+go run http_post.go "http://localhost:8080/s/trans/place_order?uid=1&devid=xxfxx22313" "role=2\r\njob=1\r\npersons=1\r\nstart=2014-03-13 9:00:00\r\nduration=120\r\naddress=1\r\ncandidates=2:1,4:1\r\ndescription=做饭" "uGTTVen4UK7Mq0lm"
+获取订单
+go run http_post.go "http://localhost:8080/s/trans/get_order?uid=1&devid=xxfxx22313" "orderid=15" "uGTTVen4UK7Mq0lm"
+获取订单列表
+ go run http_post.go "http://localhost:8080/s/trans/list_orders?uid=1&devid=xxfxx22313" "phase=2\r\norderby=StartTime\r\ndesc=false\r\npn=1\r\nrn=2" "uGTTVen4UK7Mq0lm"
+取消订单
+go run http_post.go "http://localhost:8080/s/trans/cancel_order?uid=1&devid=xxfxx22313" "orderid=17" "uGTTVen4UK7Mq0lm"
+确认订单
+go run http_post.go "http://localhost:8080/s/trans/confirm_order?uid=1&devid=xxfxx22313" "orderid=18" "uGTTVen4UK7Mq0lm"
+完成订单
+go run http_post.go "http://localhost:8080/s/trans/complete_order?uid=1&devid=xxfxx22313" "orderid=18" "uGTTVen4UK7Mq0lm"
+评价
+go run http_post.go "http://localhost:8080/s/trans/rank?uid=1&devid=xxfxx22313" "orderid=40\r\n\r\nuid=4\r\nquality=4\r\nspeed=4\r\nattitude=5\r\ncomment=很好" "uGTTVen4UK7Mq0lm" 
+查看交易记录
+go run http_post.go "http://localhost:8080/s/trans/list_trans?uid=49&devid=xxfxx22313" "pn=0\r\nrn=3" "uGTTVen4UK7Mq0lm"
+中止服务
+go run http_post.go "http://localhost:8080/s/trans/suspend_order?uid=1&devid=xxfxx22313" "orderid=18" "uGTTVen4UK7Mq0lm"
+添加地址
+go run http_post.go "http://localhost:8080/s/account/add_addr?uid=1&devid=xxfxx22313" "community=3\r\naddress=25楼203\r\ndefault=1" "uGTTVen4UK7Mq0lm"
+更新地址
+go run http_post.go "http://localhost:8080/s/account/update_addr?uid=1&devid=xxfxx22313" "aid=1\r\ncommunity=2\r\naddress=2楼203\r\ndefault=1" "uGTTVen4UK7Mq0lm"
+删除地址
+go run http_post.go "http://localhost:8080/s/account/del_addr?uid=1&devid=xxfxx22313" "aid=1" "uGTTVen4UK7Mq0lm"
+获取地址列表
+go run http_post.go "http://localhost:8080/s/account/list_addr?uid=1&devid=xxfxx22313" "" "uGTTVen4UK7Mq0lm"
+添加收藏
+go run http_post.go "http://localhost:8080/s/account/add_collect?uid=1&devid=xxfxx22313" "provider=2\r\nrole=2\r\njob=3" "uGTTVen4UK7Mq0lm"
+删除收藏
+go run http_post.go "http://localhost:8080/s/account/del_collect?uid=1&devid=xxfxx22313" "provider=2\r\nrole=2\r\njob=3" "uGTTVen4UK7Mq0lm"
+获取收藏列表
+go run http_post.go "http://localhost:8080/s/account/list_collect?uid=1&devid=xxfxx22313" "role=2\r\njob=1\r\npn=0\r\nrn=2" "uGTTVen4UK7Mq0lm"
+获取历史服务者
+go run http_post.go "http://localhost:8080/s/account/list_history?uid=1&devid=xxfxx22313" "role=2\r\njob=1\r\npn=0\r\nrn=2" "uGTTVen4UK7Mq0lm"
+获取余额
+go run http_post.go "http://localhost:8080/s/account/get_balance?uid=1&devid=xxfxx22313" "" "uGTTVen4UK7Mq0lm"
+获取HKP详情
+go run http_post.go "http://localhost:8080/account/get_hkp_detail" "uids=2,3\r\nphones=13810592277\r\njob=1" "uGTTVen4UK7Mq0lm"
+重置密码
+go run http_post.go "http://localhost:8080/account/new_password" "phone=13810592274\r\ndname=galaxy note3\r\ndevid=xxfxx22313\r\nvcode=390410\r\nplatform=1" "uGTTVen4UK7Mq0lm"
+查找附近的阿姨
+go run http_post.go "http://localhost:8080/search/find_users" "community=1\r\nrole=2\r\njob=1\r\nstart=2014-03-28 10:00:00" "uGTTVen4UK7Mq0lm"
+按关键词搜索小区
+go run http_post.go "http://localhost:8080/search/find_communities" "city=xx\r\nkeyword=西\r\npn=0\r\nrn=3" "uGTTVen4UK7Mq0lm"
+按经纬度搜索附近的小区
+go run http_post.go "http://localhost:8080/search/adjacent_communities" "lat=23.23\r\nlng=23.32" "uGTTVen4UK7Mq0lm"
+获取城市列表
+go run http_post.go "http://localhost:8081/list_cities" "lat=23\r\nlng=23" "uGTTVen4UK7Mq0lm"
+获取焦点图数据
+go run http_post.go http://localhost:8080/search/recommend "" ""
+获取全局变量
+go run http_post.go "http://localhost:8080/account/variables" "" ""
+获取小时工最近的评价
+go run http_post.go "http://localhost:8080/trans/comments" "role=2\r\npn=0\r\nrn=10\r\nuid=4" "uGTTVen4UK7Mq0lm"
+获取最近的通知
+go run http_post.go "http://localhost:8080/search/notifications" "provinces=1,2\r\ncities=1,2\r\ncommunities=4,5\r\npn=0\r\nrn=3" "uGTTVen4UK7Mq0lm"
+获取单个通知
+go run http_post.go "http://localhost:8080/search/notification" "id=1" "uGTTVen4UK7Mq0lm"
+获取商品列表
+go run http_post.go "http://localhost:8080/s/trans/list_goods?uid=1&devid=xxfxx22313" "pn=0\r\nrn=3" "uGTTVen4UK7Mq0lm"
+购买商品
+go run http_post.go "http://localhost:8080/s/trans/buy_goods?uid=1&devid=xxfxx22313" "gid=1" "uGTTVen4UK7Mq0lm"
+用户反馈
+go run http_post.go "http://localhost:8080/s/account/feedback?uid=1&devid=xxfxx22313" "content=xxxxx" "uGTTVen4UK7Mq0lm"
+获取投票选项
+go run http_post.go "http://localhost:8080/account/list_options" "" ""
+投票
+go run http_post.go "http://localhost:8080/s/account/vote?uid=1&devid=xxfxx22313" "ids=x,x,x" "uGTTVen4UK7Mq0lm"
