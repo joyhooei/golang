@@ -1,10 +1,6 @@
 package redis
 
-import (
-	"pkg/yh_redigo/redis"
-
-	redigo "github.com/garyburd/redigo/redis"
-)
+import redigo "github.com/garyburd/redigo/redis"
 
 func Values(reply interface{}, err error) ([]interface{}, error) {
 	return redigo.Values(reply, err)
@@ -109,7 +105,7 @@ func (rp *RedisPool) MultiExpire(db, expire int, args ...interface{}) (e error) 
 	return nil
 }
 
-func (rp *RedisPool) Multi(db int, cmd func(con redis.Conn) error) error {
+func (rp *RedisPool) Multi(db int, cmd func(con redigo.Conn) error) error {
 	fcon := rp.GetWriteConnection(db)
 	defer fcon.Close()
 	if e := fcon.Send("MULTI"); e != nil {
